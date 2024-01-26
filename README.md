@@ -12,6 +12,7 @@ The following libraries are required for compiling:
 	Standford CoreNLP Library: stanford-corenlp-3.9.1.jar
 	Standford CoreNLP Models Library: stanford-corenlp-3.9.1-models.jar
 
+Google and Stanford libraries can be downloaded from their websites (just search the internet). You can download Prudens and NESTOR libraries from URL: https://tinyurl.com/nestor-library
 
 # Download Application Binaries
 You can download NESTOR Desktop application using the following URL:
