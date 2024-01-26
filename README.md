@@ -34,7 +34,7 @@ Before first run check list
 - Make sure you set JAVA_HOME in NESTOR.bat/NESTOR.sh file to the correct Java home path on your computer.
 - If you want to try a different Java Runtime Environment (not recommended) you make sure you set JAVA_HOME path accordingly.
 - If you want to turn off application console, use javaw executable instead of java in NESTOR.bat/NESTOR.sh
-- File NESTOR.xml contains the application parameters. The file that comes with the application does not contain all possible parameters but only the ones that are set to values different than the default values. You can see the full list of supported parameters in console output where they are printed along with their values. Do not change or add a parameter value, unless you know what you are doing.
+- Files NESTOR.Settings.json, NESTORApp.Settings.json and NESTORTranslation.Settings.json contain the Library, Application and Translation parameters respectively. The files that come with the application may not contain all possible parameters. You can see the full list of supported parameters in console output where they are printed along with their values. Do not change or add a parameter value, unless you know what you are doing.
 - The application binary classes along with required libraries are packed in NESTOR.jar.
 - Use script file NESTOR.bat for Windows or NESTOR.sh for Linux to run the application.
 
