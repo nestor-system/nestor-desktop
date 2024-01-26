@@ -1,0 +1,7 @@
+{
+  "fileNLPData": "NLPData.txt",
+  "fileDocumentJSON": "NLDocument.json",
+  "fileLogicAnnotation": "LogicAnnotation.prudens",
+  "fileTranslationPolicy": "TranslationPolicy.prudens",
+  "fileGeneratedExpressions": "LogicExpressions.prudens"
+}

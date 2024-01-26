@@ -1,0 +1,86 @@
+@Knowledge
+E001 :: cop(W1, P1, be, PBe),
+nsubj(W1, P1, W2, P2) implies
+sdclause(_, W1, P1, W1, W2, P2, W2);
+
+E002 :: token(Word1, POS_Tag,
+              NER_Flag, NER_Tag, W1, P1),
+?startsWith(POS_Tag, vb),
+dobj(W1, P1, W2, P2) implies
+siclause(_, W1, P1, W1, W2, P2, W2);
+
+E003 :: siclause(Prefix,
+                 W1, P1, WPredicate1,
+                 W2, P2, WPredicate2),
+?partOf(activate_deactivate_increase_decrease, W1)
+implies
+aclause(action,
+        W1, P1, WPredicate1,
+        W2, P2, WPredicate2);
+
+E004 :: root(root, 0, W1, P1),
+sdclause(Prefix, W1, P1, WPredicate1,
+         W2, P2, WPredicate2) implies
+!generate(head, 0, Prefix,
+          WPredicate1, args, vph_1, next,
+          WPredicate2, args, vph_1);
+
+E005 :: root(root, 0, W1, P1),
+aclause(Prefix, W1, P1, WPredicate1,
+        W2, P2, WPredicate2) implies
+!generate(head, 0, Prefix,
+          WPredicate1, args, vph_1, next,
+          WPredicate2, args, vph_1);
+
+E006 :: advcl(WParent, PParent, W1, P1),
+sdclause(_, W1, P1, WPredicate1,
+         W2, P2, WPredicate2) implies
+!generate(body, 1, _,
+          WPredicate1, args, vph_1, next,
+          WPredicate2, args, vph_1);
+
+E007 :: root(root, 0, W1, P1),
+token(Word2, POS_Tag, ner, NER_Tag, W2, P2),
+sdclause(Prefix, W1, P1, WPredicate1,
+         W2, P2, WPredicate2) implies
+!generate(head, 0, Prefix,
+          WPredicate1, args, WPredicate2);
+
+E008 :: root(root, 0, W1, P1),
+token(Word2, POS_Tag, ner, NER_Tag, W2, P2),
+aclause(Prefix, W1, P1, WPredicate1,
+        W2, P2, WPredicate2) implies
+!generate(head, 0, Prefix,
+          WPredicate1, args, WPredicate2);
+
+E009 :: advcl(WParent, PParent, W1, P1),
+token(Word2, POS_Tag, ner, NER_Tag, W2, P2),
+sdclause(_, W1, P1, WPredicate1,
+         W2, P2, WPredicate2) implies
+!generate(body, 1, _,
+          WPredicate1, args, WPredicate2);
+
+E010 ::
+!generate(TYPE, GROUP, Prefix,
+          WPredicate1, args, WPredicate2) #
+!generate(TYPE, GROUP, Prefix,
+          WPredicate1, args, vph_1, next,
+          WPredicate2, args, vph_1);
+
+E011 :: aux(W1, P1, be, PBe),
+nsubj(W1, P1, W2, P2) implies
+sdclause(_, W1, P1, W1, W2, P2, W2);
+
+E012 :: siclause(Prefix,
+                 W1, P1, WPredicate1,
+                 W2, P2, WPredicate2),
+?startsWith(W1, engage) implies
+aclause(action, W1, P1, activate,
+        W2, P2, WPredicate2);
+
+@Procedures
+function startsWith(word, start) {
+    return word.startsWith(start);}
+	
+	function partOf(list, word) {
+		return list.split("_").includes(word);}
